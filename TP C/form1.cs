@@ -34,12 +34,12 @@ namespace TP_C
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void Tbuser_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -88,8 +88,8 @@ namespace TP_C
         }
 
         private void button1_Click_1(object sender, EventArgs e)
-        {  
-            
+        {
+
             // Récupération des valeurs des TextBox
             string pseudo = textPseudo.Text;
             string password = Textmdp.Text;
@@ -103,7 +103,7 @@ namespace TP_C
             MySqlCommand cmd = new MySqlCommand(query, con);
 
             con.Open();
-            var reader  = cmd.ExecuteReader();
+            var reader = cmd.ExecuteReader();
 
 
             var succes = reader.HasRows;
@@ -115,14 +115,15 @@ namespace TP_C
 
 
             }
-            else {
+            else
+            {
                 MessageBox.Show("ya une erreur");
-                    
-                    
-                    }
 
 
-              
+            }
+
+
+
 
 
 
@@ -144,6 +145,11 @@ namespace TP_C
         }
 
         private void forget_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void label6_Click_1(object sender, EventArgs e)
         {
 
         }

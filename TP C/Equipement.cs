@@ -1,8 +1,6 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 
 namespace TP_C
 
@@ -11,14 +9,14 @@ namespace TP_C
     {
         private int Id;
         private string nom;
-        private bool isDisponible;
+        private bool Disponible;
 
 
-        public Equipement(int id, string nom, bool isDisponible)
+        public Equipement(int id, string nom, bool Disponible)
         {
             this.Id = id;
             this.nom = nom;
-            this.isDisponible = isDisponible;
+            Disponible = Disponible;
         }
 
 
@@ -45,9 +43,52 @@ namespace TP_C
 
         public bool IsDisponible()
         {
-            return isDisponible;
+            return Disponible;
         }
 
-        
+        public override string ToString()
+        {
+            return nom; // Cela permet d'afficher uniquement le nom dans la ComboBox
+        }
+
+        public static List<Equipement> GetEquipementsDisponibles()
+        {
+            List<Equipement> equipements = new List<Equipement>();
+            using (MySqlConnection conn = BDD.GetConnection())
+            {
+                if(conn == null)
+                {
+                    Console.WriteLine("Erreur :connextion Mysql est null !");
+                }
+
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT id, nom, disponible FROM Equipement WHERE disponible = 1;";
+                    MySqlCommand cmd = new MySqlCommand(query, conn) ;
+                   MySqlDataReader reader = cmd.ExecuteReader() ;
+
+                    while (reader.Read())
+                    {
+                        equipements.Add(new Equipement(
+                            reader.GetInt32("id"),
+                            reader.GetString("nom"),
+                            reader.GetBoolean("disponible")
+                        ));
+                    }
+
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Erreur lors de la récupération des équipements : " + ex.Message);
+                }
+            }
+            return equipements;
+        }
+
+
+
+
     }
 }

@@ -16,7 +16,7 @@ namespace TP_C
     {
         MySqlConnection connection = new MySqlConnection("server=localhost;database=c#;uid=donavan;pwd=dodo;");
         string server = "localhost";
-        string uid="donavan";
+        string uid = "donavan";
         string password = "dodo";
         string database = "c#";
 
@@ -38,15 +38,15 @@ namespace TP_C
 
         private void afficher_Click(object sender, EventArgs e)
         {
-          //  MySqlCommand cmd = new MySqlCommand("Select id_user,Nom from user", connection);
-           // cmd.Parameters.AddWithValue("id_user", textBox1.Text);
+            //  MySqlCommand cmd = new MySqlCommand("Select id_user,Nom from user", connection);
+            // cmd.Parameters.AddWithValue("id_user", textBox1.Text);
             // MySqlDataAdapter da = new MySqlDataAdapter();
             // da.SelectCommand = cmd;
-           // DataTable dt = new DataTable();
-           // dt.Clear();
-           //  da.Fill(dt);
-           // dataGridView1.DataSource = dt;
-           // dataGridView1.AllowUserToAddRows = false;
+            // DataTable dt = new DataTable();
+            // dt.Clear();
+            //  da.Fill(dt);
+            // dataGridView1.DataSource = dt;
+            // dataGridView1.AllowUserToAddRows = false;
         }
 
         private void modifier_Click(object sender, EventArgs e)
@@ -72,16 +72,16 @@ namespace TP_C
             String conString = "server=" + server + ";uid=" + uid + ";pwd=" + password + ";database=" + database;
             MySqlConnection con = new MySqlConnection(conString);
             con.Open();
-            string createtable = "insert into contact_table (nom,prenom,email) values('"+ textBoxNom.Text+"', '"+textBox3.Text+"','"+textBox4.Text+"')";
+            string createtable = "insert into contact_table (nom,prenom,email) values('" + textBoxNom.Text + "', '" + textBox3.Text + "','" + textBox4.Text + "')";
             MySqlCommand cmd = new MySqlCommand(createtable, con);
-           int i = cmd.ExecuteNonQuery();
+            int i = cmd.ExecuteNonQuery();
             MessageBox.Show("inseré avec succse");
 
         }
 
         private void crée_table_Click(object sender, EventArgs e)
         {
-            String conString="server="+server+ ";uid=" + uid +";pwd=" +password + ";database=" + database;
+            String conString = "server=" + server + ";uid=" + uid + ";pwd=" + password + ";database=" + database;
             MySqlConnection con = new MySqlConnection(conString);
             con.Open();
             string createtable = "create table contact_table (id int,nom varchar(50),prenom varchar (50), email varchar (50))";
@@ -115,9 +115,9 @@ namespace TP_C
             String conString = "server=" + server + ";uid=" + uid + ";pwd=" + password + ";database=" + database;
             MySqlConnection con = new MySqlConnection(conString);
             con.Open();
-            string updateQuery = "Update contact_table SET nom='" + textBoxNom.Text + "', prenom='" + textBox3.Text + "',email='" + textBox4.Text + "' where id ="+int.Parse(textBoxID.Text);
+            string updateQuery = "Update contact_table SET nom='" + textBoxNom.Text + "', prenom='" + textBox3.Text + "',email='" + textBox4.Text + "' where id =" + int.Parse(textBoxID.Text);
             MySqlCommand cmd = new MySqlCommand(updateQuery, con);
-             int i = cmd.ExecuteNonQuery();
+            int i = cmd.ExecuteNonQuery();
             MessageBox.Show("inseré avec succse");
 
 
@@ -125,7 +125,7 @@ namespace TP_C
 
         private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if(dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
             {
                 //dataGridView1.CurrentRow.Selected =  true;
                 textBoxID.Text = dataGridView1.Rows[e.RowIndex].Cells["id"].FormattedValue.ToString();
@@ -167,7 +167,7 @@ namespace TP_C
 
         }
 
-     
+
 
         private void afficherLaTableToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -180,6 +180,13 @@ namespace TP_C
             da.Fill(dt);
             dataGridView1.DataSource = dt;
             dataGridView1.AllowUserToAddRows = false;
+        }
+
+        private void reserverEquiepementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var reserver = new Reservation ();
+            reserver.Show();
+            this.Hide();
         }
     }
 }

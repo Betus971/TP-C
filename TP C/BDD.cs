@@ -12,7 +12,7 @@ namespace TP_C
   internal static  class  BDD
     {
 
-        private static string connectionString = "server=localhost;database=c#;uid=root;pwd=;"; 
+        private static string connectionString = "server=localhost;database=ppelourd;uid=donavan;pwd=dodo;"; 
         private static MySqlConnection connection = null;
 
 

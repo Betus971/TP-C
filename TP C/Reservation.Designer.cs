@@ -29,70 +29,72 @@ namespace TP_C
         /// </summary>
         private void InitializeComponent()
         {
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.equipement = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.reserver = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            dateTimeReservation = new System.Windows.Forms.DateTimePicker();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            equipement = new System.Windows.Forms.Label();
+            ButtonReserver = new System.Windows.Forms.Button();
+            SelectEquipement = new System.Windows.Forms.ComboBox();
+            SuspendLayout();
             // 
-            // dateTimePicker1
+            // dateTimeReservation
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(272, 88);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 23);
-            this.dateTimePicker1.TabIndex = 0;
+            dateTimeReservation.Location = new System.Drawing.Point(272, 88);
+            dateTimeReservation.Name = "dateTimeReservation";
+            dateTimeReservation.Size = new System.Drawing.Size(200, 23);
+            dateTimeReservation.TabIndex = 0;
             // 
             // equipement
             // 
-            this.equipement.AutoSize = true;
-            this.equipement.Location = new System.Drawing.Point(330, 127);
-            this.equipement.Name = "equipement";
-            this.equipement.Size = new System.Drawing.Size(71, 15);
-            this.equipement.TabIndex = 1;
-            this.equipement.Text = "equipement";
-            this.equipement.Click += new System.EventHandler(this.equipement_Click);
+            equipement.AutoSize = true;
+            equipement.Location = new System.Drawing.Point(330, 127);
+            equipement.Name = "equipement";
+            equipement.Size = new System.Drawing.Size(71, 15);
+            equipement.TabIndex = 1;
+            equipement.Text = "equipement";
+            equipement.Click += equipement_Click;
             // 
-            // comboBox1
+            // ButtonReserver
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(296, 165);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(146, 23);
-            this.comboBox1.TabIndex = 2;
+            ButtonReserver.Location = new System.Drawing.Point(296, 213);
+            ButtonReserver.Name = "ButtonReserver";
+            ButtonReserver.Size = new System.Drawing.Size(146, 23);
+            ButtonReserver.TabIndex = 3;
+            ButtonReserver.Text = "Reserver";
+            ButtonReserver.UseVisualStyleBackColor = true;
+            ButtonReserver.Click += ButtonReserver_Click;
             // 
-            // reserver
+            // SelectEquipement
             // 
-            this.reserver.Location = new System.Drawing.Point(296, 213);
-            this.reserver.Name = "reserver";
-            this.reserver.Size = new System.Drawing.Size(146, 23);
-            this.reserver.TabIndex = 3;
-            this.reserver.Text = "Reserver";
-            this.reserver.UseVisualStyleBackColor = true;
+            SelectEquipement.FormattingEnabled = true;
+            SelectEquipement.Location = new System.Drawing.Point(306, 167);
+            SelectEquipement.Name = "SelectEquipement";
+            SelectEquipement.Size = new System.Drawing.Size(121, 23);
+            SelectEquipement.TabIndex = 4;
+            SelectEquipement.SelectedIndexChanged += SelectEquipement_SelectedIndexChanged;
             // 
             // Reservation
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.reserver);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.equipement);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Name = "Reservation";
-            this.Text = "Reservation";
-            this.Load += new System.EventHandler(this.Reservation_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(800, 450);
+            Controls.Add(SelectEquipement);
+            Controls.Add(ButtonReserver);
+            Controls.Add(equipement);
+            Controls.Add(dateTimeReservation);
+            Name = "Reservation";
+            Text = "Reservation";
+            Load += Reservation_Load;
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimeReservation;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label equipement;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button reserver;
+        private System.Windows.Forms.Button ButtonReserver;
+        private System.Windows.Forms.ComboBox SelectEquipement;
     }
 }
